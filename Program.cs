@@ -1,6 +1,7 @@
+using Azure.Data.Tables;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -11,6 +12,8 @@ app.UseSwaggerUI();
 app.UseHttpsRedirection();
 
 var foods = new List<Food>();
+
+var tableClient = new TableServiceClient(Environment.GetEnvironmentVariable("a"));
 
 app.MapGet("/list", () => foods).WithName("GetFoods").WithOpenApi();
 
