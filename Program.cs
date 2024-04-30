@@ -27,6 +27,7 @@ app.MapGet("/list", () =>
     {
         var food = new Food();
         food.Id = tableEntity.Id;
+        food.Kcal = tableEntity.Kcal;
         food.Name = tableEntity.Name;
         food.Price = tableEntity.Price;
         food.Description = tableEntity.Description;
